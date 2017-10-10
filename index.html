@@ -262,6 +262,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/Windows下搭建MapReduce开发环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/10/Windows下搭建MapReduce开发环境/" itemprop="url">Windows下搭建MapReduce开发环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T22:18:05+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>搭建好了Hadoop框架下的服务器集群后，我们需要一个master主机通过SSH控制我们的slaves服务器。我们可以通过SSH直接在命令行里写好Java文件，然后在yarn下运行，但这样步骤较多，不利于提高工作效率。所以在这里我们介绍用eclipse来直接对Hadoop进行上传、运行、本地调试，十分的方便快捷。</p>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ul>
+<li>eclipse for Java</li>
+<li>hadoop-eclipse-plugin-2.7.0插件(根据Hadoop版本选择合适的插件)</li>
+<li>Hadoop2.7.1环境(windows版)</li>
+</ul>
+<h3 id="创建Maven项目"><a href="#创建Maven项目" class="headerlink" title="创建Maven项目"></a>创建Maven项目</h3><p>New-&gt;other-&gt;Maven</p>
+<h3 id="添加Maven依赖"><a href="#添加Maven依赖" class="headerlink" title="添加Maven依赖"></a>添加Maven依赖</h3><p>打开网页www.mvnrepository.com，搜索Hadoop，分别打开Apache Hadoop Common、Apache Hadoop HDFS、Apache Hadoop Client Common、Apache Hadoop Core，分别复制代码，加入pom.xml文件中。</p>
+<p>在这里有现成的文件，可以直接将pom.xml清空，复制下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line"></div><div class="line">  &lt;groupId&gt;word&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;count&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</div><div class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</div><div class="line"></div><div class="line">  &lt;name&gt;count&lt;/name&gt;</div><div class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</div><div class="line"></div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line"></div><div class="line">&lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;hadoop-mapreduce-client-common&lt;/artifactId&gt;</div><div class="line">		&lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-mapreduce-client-core&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;3.8.1&lt;/version&gt;</div><div class="line">        &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
+<p>然后等下载完毕相关的依赖包，Maven的配置就完成了</p>
+<h3 id="安装eclipse插件"><a href="#安装eclipse插件" class="headerlink" title="安装eclipse插件"></a>安装eclipse插件</h3><p>将hadoop-eclipse-plugin-2.7.0.jar拷贝至eclipse/plugins文件夹下，重启eclipse</p>
+<blockquote>
+<p>部分版本eclipse不会自动更新插件列表，我们需要清空eclipse/configuration/org.eclipse.update文件夹下的配置文件，让eclipse重新搜索插件，重启eclipse就行。</p>
+</blockquote>
+<h3 id="配置eclipse插件"><a href="#配置eclipse插件" class="headerlink" title="配置eclipse插件"></a>配置eclipse插件</h3><ol>
+<li><p>进入eclipse，window-&gt;Preferences-&gt;Hadoop Map/Reduce，在这里配置Hadoop环境的路径</p>
+</li>
+<li><p>window-&gt;Show View-&gt;Other，点击Map/Reduce Locations打开插件，点击新出现窗口右上角的new，弹出插件配置窗口，更改Location name，将Host和Port改为设置Hadoop框架时的Host和Port，完成</p>
+</li>
+</ol>
+<blockquote>
+<p>如果是主机名，需要配置一下和IP的对应关系</p>
+</blockquote>
+<h3 id="配置电脑的环境变量"><a href="#配置电脑的环境变量" class="headerlink" title="配置电脑的环境变量"></a>配置电脑的环境变量</h3><p>先新建一个Hadoop环境变量，然后配置Path，导入环境变量中。</p>
+<h3 id="替换Hadoop环境文件"><a href="#替换Hadoop环境文件" class="headerlink" title="替换Hadoop环境文件"></a>替换Hadoop环境文件</h3><p>因为是在eclipse运行，所以需要替换Hadoop环境文件，windows下的文件需要重新编译一下，在网上可以找到下载。</p>
+<h2 id="对Hadoop进行操作"><a href="#对Hadoop进行操作" class="headerlink" title="对Hadoop进行操作"></a>对Hadoop进行操作</h2><p>在配置完成后，上传等操作就可以直接右击资源栏里的Hadoop插件，就可以上传到服务器集群的Hadoop里，然后直接能在本地运行MapReduce.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/Hadoop部署简述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -947,7 +1115,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -969,7 +1137,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

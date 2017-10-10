@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="音乐,网易云,胡思乱想," />
+  <meta name="keywords" content="Hadoop,Java,eclipse,Windows,MapReduce," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="发现网易云方便的外链功能后还是迫不及待的想分享我最喜欢的这首歌曲，在网易云上也可以看这首歌的MV  关于这首歌曲这首歌曲第一次听到时什么时候已经记不清了，只记得时网易云当时自动推荐的，第一次听到就被高潮部分给吸引住了，日文歌在节奏方面总是这么的让人欲罢不能。歌词我也很喜欢，我刚刚读大学，在这个学校与社会接轨的过渡期，真的感觉压力很大，自己手中一无所有，在硕大的校园里，也不像以前有着天天见面的朋友">
-<meta name="keywords" content="音乐,网易云,胡思乱想">
+<meta name="description" content="简介搭建好了Hadoop框架下的服务器集群后，我们需要一个master主机通过SSH控制我们的slaves服务器。我们可以通过SSH直接在命令行里写好Java文件，然后在yarn下运行，但这样步骤较多，不利于提高工作效率。所以在这里我们介绍用eclipse来直接对Hadoop进行上传、运行、本地调试，十分的方便快捷。 搭建步骤 eclipse for Java hadoop-eclipse-plu">
+<meta name="keywords" content="Hadoop,Java,eclipse,Windows,MapReduce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="尽管我们的手中空无一物">
-<meta property="og:url" content="http://yoursite.com/2017/10/10/尽管我们的手中空无一物/index.html">
+<meta property="og:title" content="Windows下搭建MapReduce开发环境">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/Windows下搭建MapReduce开发环境/index.html">
 <meta property="og:site_name" content="张钧洋">
-<meta property="og:description" content="发现网易云方便的外链功能后还是迫不及待的想分享我最喜欢的这首歌曲，在网易云上也可以看这首歌的MV  关于这首歌曲这首歌曲第一次听到时什么时候已经记不清了，只记得时网易云当时自动推荐的，第一次听到就被高潮部分给吸引住了，日文歌在节奏方面总是这么的让人欲罢不能。歌词我也很喜欢，我刚刚读大学，在这个学校与社会接轨的过渡期，真的感觉压力很大，自己手中一无所有，在硕大的校园里，也不像以前有着天天见面的朋友">
+<meta property="og:description" content="简介搭建好了Hadoop框架下的服务器集群后，我们需要一个master主机通过SSH控制我们的slaves服务器。我们可以通过SSH直接在命令行里写好Java文件，然后在yarn下运行，但这样步骤较多，不利于提高工作效率。所以在这里我们介绍用eclipse来直接对Hadoop进行上传、运行、本地调试，十分的方便快捷。 搭建步骤 eclipse for Java hadoop-eclipse-plu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T12:59:45.654Z">
+<meta property="og:updated_time" content="2017-10-10T16:12:22.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="尽管我们的手中空无一物">
-<meta name="twitter:description" content="发现网易云方便的外链功能后还是迫不及待的想分享我最喜欢的这首歌曲，在网易云上也可以看这首歌的MV  关于这首歌曲这首歌曲第一次听到时什么时候已经记不清了，只记得时网易云当时自动推荐的，第一次听到就被高潮部分给吸引住了，日文歌在节奏方面总是这么的让人欲罢不能。歌词我也很喜欢，我刚刚读大学，在这个学校与社会接轨的过渡期，真的感觉压力很大，自己手中一无所有，在硕大的校园里，也不像以前有着天天见面的朋友">
+<meta name="twitter:title" content="Windows下搭建MapReduce开发环境">
+<meta name="twitter:description" content="简介搭建好了Hadoop框架下的服务器集群后，我们需要一个master主机通过SSH控制我们的slaves服务器。我们可以通过SSH直接在命令行里写好Java文件，然后在yarn下运行，但这样步骤较多，不利于提高工作效率。所以在这里我们介绍用eclipse来直接对Hadoop进行上传、运行、本地调试，十分的方便快捷。 搭建步骤 eclipse for Java hadoop-eclipse-plu">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/10/尽管我们的手中空无一物/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/Windows下搭建MapReduce开发环境/"/>
 
 
 
 
 
-  <title>尽管我们的手中空无一物 | 张钧洋</title>
+  <title>Windows下搭建MapReduce开发环境 | 张钧洋</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/尽管我们的手中空无一物/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/Windows下搭建MapReduce开发环境/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张钧洋">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">尽管我们的手中空无一物</h1>
+          <h1 class="post-title" itemprop="name headline">Windows下搭建MapReduce开发环境</h1>
         
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T11:02:36+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T22:18:05+08:00">
                 2017-10-10
               </time>
             
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/胡思乱想/" itemprop="url" rel="index">
-                    <span itemprop="name">胡思乱想</span>
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
                   </a>
                 </span>
 
@@ -352,59 +352,33 @@
       
 
       
-        <blockquote>
-<p>发现网易云方便的外链功能后还是迫不及待的想分享我最喜欢的这首歌曲，在网易云上也可以看这首歌的MV</p>
-</blockquote>
-<h2 id="关于这首歌曲"><a href="#关于这首歌曲" class="headerlink" title="关于这首歌曲"></a>关于这首歌曲</h2><p>这首歌曲第一次听到时什么时候已经记不清了，只记得时网易云当时自动推荐的，第一次听到就被高潮部分给吸引住了，日文歌在节奏方面总是这么的让人欲罢不能。歌词我也很喜欢，我刚刚读大学，在这个学校与社会接轨的过渡期，真的感觉压力很大，自己手中一无所有，在硕大的校园里，也不像以前有着天天见面的朋友，仿佛空空荡荡的。但是怎么说呢，学到了东西总是开心地想与人分享；不知所措的时候也学会了坚持下去，迈出步伐。歌词真的很能引起共鸣，在这个情绪丰富而又孤独的年龄，每当看着繁星漫天，都会感觉自己手中空无一物，迷茫着，失去着。然而还是要拼命挣扎，在这不完美的世界，坚持心中的自己。我们都曾有梦想，心中住着理想中的自己，但是随着年龄增长，失去的不仅有时间，还有幻想和不羁。无论如何，还是希望在未来那迷茫之时，我能坚定地走下去，也不知道为了什么，但毕竟已经走了这么多年了吧。</p>
-<h2 id="原曲-amp-歌词"><a href="#原曲-amp-歌词" class="headerlink" title="原曲&amp;歌词"></a>原曲&amp;歌词</h2><p>(好像不支持文章内部直接插入网易云外链……我过几天试试)</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=32317208&auto=0&height=32"></iframe>
-
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>搭建好了Hadoop框架下的服务器集群后，我们需要一个master主机通过SSH控制我们的slaves服务器。我们可以通过SSH直接在命令行里写好Java文件，然后在yarn下运行，但这样步骤较多，不利于提高工作效率。所以在这里我们介绍用eclipse来直接对Hadoop进行上传、运行、本地调试，十分的方便快捷。</p>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ul>
+<li>eclipse for Java</li>
+<li>hadoop-eclipse-plugin-2.7.0插件(根据Hadoop版本选择合适的插件)</li>
+<li>Hadoop2.7.1环境(windows版)</li>
+</ul>
+<h3 id="创建Maven项目"><a href="#创建Maven项目" class="headerlink" title="创建Maven项目"></a>创建Maven项目</h3><p>New-&gt;other-&gt;Maven</p>
+<h3 id="添加Maven依赖"><a href="#添加Maven依赖" class="headerlink" title="添加Maven依赖"></a>添加Maven依赖</h3><p>打开网页www.mvnrepository.com，搜索Hadoop，分别打开Apache Hadoop Common、Apache Hadoop HDFS、Apache Hadoop Client Common、Apache Hadoop Core，分别复制代码，加入pom.xml文件中。</p>
+<p>在这里有现成的文件，可以直接将pom.xml清空，复制下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line"></div><div class="line">  &lt;groupId&gt;word&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;count&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</div><div class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</div><div class="line"></div><div class="line">  &lt;name&gt;count&lt;/name&gt;</div><div class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</div><div class="line"></div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line"></div><div class="line">&lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;hadoop-mapreduce-client-common&lt;/artifactId&gt;</div><div class="line">		&lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;hadoop-mapreduce-client-core&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.7.1&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;3.8.1&lt;/version&gt;</div><div class="line">        &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
+<p>然后等下载完毕相关的依赖包，Maven的配置就完成了</p>
+<h3 id="安装eclipse插件"><a href="#安装eclipse插件" class="headerlink" title="安装eclipse插件"></a>安装eclipse插件</h3><p>将hadoop-eclipse-plugin-2.7.0.jar拷贝至eclipse/plugins文件夹下，重启eclipse</p>
 <blockquote>
-<p>君に見せたいものがあるんだ<br>我有件礼物想要呈现给你  </p>
-<p>孤独な夜にもきっと<br>那是在孤独难耐的夜晚  </p>
-<p>遠くで輝き続ける<br>依然会在远方闪闪发光的  </p>
-<p>幾千の星を<br>满天繁星  </p>
-<p>失うこと<br>虽然不断失去  </p>
-<p>割り切れぬこと<br>虽然百般费解  </p>
-<p>弾かれること<br>虽然受尽排挤  </p>
-<p>叶わないこと<br>虽然无法实现  </p>
-<p>でも足掻くこと<br>但依然拼命挣扎  </p>
-<p>信じぬくこと<br>依然坚信到底  </p>
-<p>上を向いて<br>依然昂首  </p>
-<p>歩き出すこと<br>向前迈进  </p>
-<p>僕らの手には何もないけど<br>尽管我们的手中空无一物  </p>
-<p>かわりに　つなぎあえるから<br>却能因此紧紧相牵  </p>
-<p>ひとりきりで　迷わないで<br>当你一人时请别迷茫  </p>
-<p>どんな日もこの手を離さないから<br>因为我无论何时都不会放手  </p>
-<p>君にあげたいものがあるんだ<br>我有件礼物想要呈现给你  </p>
-<p>凍える夜にはいつも<br>那是在寒冷刺骨的夜晚  </p>
-<p>もう何も心配等せず<br>也能让你不再有任何牵挂  </p>
-<p>眠れる毛布を<br>安心入睡的毛毯  </p>
-<p>忘れられぬこと<br>虽然难以忘怀  </p>
-<p>耐えきれぬこと<br>虽然无法承受  </p>
-<p>術がないこと<br>虽然束手无策  </p>
-<p>奪われること<br>虽然总被夺走  </p>
-<p>でも気付くこと<br>但我已然察觉到  </p>
-<p>君がいること<br>有你陪在身边  </p>
-<p>守りたいものが<br>想要守护之物  </p>
-<p>強くさせること<br>让我更加坚强  </p>
-<p>自分の色を誇れるように<br>为了能让自己的色彩值得夸耀  </p>
-<p>自由に色を足せばいい<br>只要尽情增添就好  </p>
-<p>ぼやけていた　この世界を<br>这模糊不清的世界  </p>
-<p>この手が彩ってゆくんだ<br>就用这双手为它点缀五彩斑斓  </p>
-<p>認めてくれる人がいなくても<br>即使得不到旁人的认同  </p>
-<p>サマになる肩書きがなくても<br>即使不曾拥有像样的地位  </p>
-<p>僕らの小さな手は明日きっと<br>我们小小的双手也一定  </p>
-<p>誰かを笑顔にできるから<br>能为明天的某人带去笑容  </p>
-<p>僕らの手には何もないけど<br>尽管我们的手中空无一物  </p>
-<p>かわりに　つなぎあえるから<br>却能因此紧紧相牵  </p>
-<p>ひとりきりで　迷わないで<br>当你一人时请别迷茫  </p>
-<p>どんな日もこの手を離さないから<br>因为我无论何时都不会放手  </p>
-<p>君に見せたいものがあるんだ<br>我有件礼物想要呈现给你  </p>
-<p>孤独な夜にもきっと<br>那是在孤独难耐的夜晚  </p>
-<p>遠くで輝き続ける<br>依然会在远方闪闪发光的  </p>
-<p>幾千の星を<br>满天繁星  </p>
+<p>部分版本eclipse不会自动更新插件列表，我们需要清空eclipse/configuration/org.eclipse.update文件夹下的配置文件，让eclipse重新搜索插件，重启eclipse就行。</p>
 </blockquote>
+<h3 id="配置eclipse插件"><a href="#配置eclipse插件" class="headerlink" title="配置eclipse插件"></a>配置eclipse插件</h3><ol>
+<li><p>进入eclipse，window-&gt;Preferences-&gt;Hadoop Map/Reduce，在这里配置Hadoop环境的路径</p>
+</li>
+<li><p>window-&gt;Show View-&gt;Other，点击Map/Reduce Locations打开插件，点击新出现窗口右上角的new，弹出插件配置窗口，更改Location name，将Host和Port改为设置Hadoop框架时的Host和Port，完成</p>
+</li>
+</ol>
+<blockquote>
+<p>如果是主机名，需要配置一下和IP的对应关系</p>
+</blockquote>
+<h3 id="配置电脑的环境变量"><a href="#配置电脑的环境变量" class="headerlink" title="配置电脑的环境变量"></a>配置电脑的环境变量</h3><p>先新建一个Hadoop环境变量，然后配置Path，导入环境变量中。</p>
+<h3 id="替换Hadoop环境文件"><a href="#替换Hadoop环境文件" class="headerlink" title="替换Hadoop环境文件"></a>替换Hadoop环境文件</h3><p>因为是在eclipse运行，所以需要替换Hadoop环境文件，windows下的文件需要重新编译一下，在网上可以找到下载。</p>
+<h2 id="对Hadoop进行操作"><a href="#对Hadoop进行操作" class="headerlink" title="对Hadoop进行操作"></a>对Hadoop进行操作</h2><p>在配置完成后，上传等操作就可以直接右击资源栏里的Hadoop插件，就可以上传到服务器集群的Hadoop里，然后直接能在本地运行MapReduce.</p>
 
       
     </div>
@@ -422,11 +396,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/音乐/" rel="tag"># 音乐</a>
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
           
-            <a href="/tags/网易云/" rel="tag"># 网易云</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/胡思乱想/" rel="tag"># 胡思乱想</a>
+            <a href="/tags/eclipse/" rel="tag"># eclipse</a>
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/MapReduce/" rel="tag"># MapReduce</a>
           
         </div>
       
@@ -439,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/09/关于hexo新版本配置问题/" rel="next" title="关于hexo新版本配置问题">
-                <i class="fa fa-chevron-left"></i> 关于hexo新版本配置问题
+              <a href="/2017/10/10/Hadoop部署简述/" rel="next" title="Hadoop部署简述">
+                <i class="fa fa-chevron-left"></i> Hadoop部署简述
               </a>
             
           </div>
@@ -448,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/10/Hadoop部署简述/" rel="prev" title="Hadoop部署简述">
-                Hadoop部署简述 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -589,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于这首歌曲"><span class="nav-number">1.</span> <span class="nav-text">关于这首歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原曲-amp-歌词"><span class="nav-number">2.</span> <span class="nav-text">原曲&歌词</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Maven项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建Maven项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Maven依赖"><span class="nav-number">2.2.</span> <span class="nav-text">添加Maven依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装eclipse插件"><span class="nav-number">2.3.</span> <span class="nav-text">安装eclipse插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置eclipse插件"><span class="nav-number">2.4.</span> <span class="nav-text">配置eclipse插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置电脑的环境变量"><span class="nav-number">2.5.</span> <span class="nav-text">配置电脑的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换Hadoop环境文件"><span class="nav-number">2.6.</span> <span class="nav-text">替换Hadoop环境文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对Hadoop进行操作"><span class="nav-number">3.</span> <span class="nav-text">对Hadoop进行操作</span></a></li></ol></div>
             
 
           </div>
