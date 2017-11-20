@@ -399,7 +399,11 @@
 <p> vim里按i进入编辑模式，按esc退出编辑模式，再按:wq保存<br> 做完这些后就不会在当前文件夹下生成配置文件了。这样做的目的是开机自启时，会在当前文件夹下生成配置文件，而开机默认当前目录为根目录，根目录不允许写入。</p>
 </li>
 </ol>
-<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>输入<br><code>root@XiaoQiang:~# vim /etc/inittab</code><br>在末尾换行并添加<br><code>::respawn:/data/python/usr/bin/python /data/python/usr/bin/drcom.py</code><br>敲完这一行之后，按 esc 键返回到浏览模式，输入 :wq 然后回车，保存文件并退出编辑器。输入<br><code>root@XiaoQiang:~# reboot</code><br>重启路由器。</p>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>输入<br><code>root@XiaoQiang:~# vim /etc/inittab</code>  </p>
+<p>在末尾换行并添加<br><code>::respawn:/data/python/usr/bin/python /data/python/usr/bin/drcom.py</code>  </p>
+<p>敲完这一行之后，按 esc 键返回到浏览模式，输入 :wq 然后回车，保存文件并退出编辑器。输入  </p>
+<p><code>root@XiaoQiang:~# reboot</code>  </p>
+<p>重启路由器。</p>
 <hr>
 <p><strong>最后再次感谢开发这个脚本并让其开源的作者，为我们提供了有力的工具</strong></p>
 

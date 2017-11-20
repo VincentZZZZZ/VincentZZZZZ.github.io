@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="张钧洋">
 <meta property="og:description" content="趁双11重新弄了个路由器，小米路由器3，本想着和以前路由器一样刷刷就好，但这次情况貌似有些特殊……小米路由器有自己的开发版ROM，我又想使用小米路由器的存储功能，所以不打算另刷系统，直接用原系统。 那么我们开始吧 简介几个要点  Python脚本登陆 SSH对路由器进行操作 设置开机启动 相关细节的操作  可能需要的软件(如果你是Windows系统的话)  PuTTY WinSCP  开启SSH点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-20T02:34:48.679Z">
+<meta property="og:updated_time" content="2017-11-20T02:41:19.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小米路由器3登陆drcom">
 <meta name="twitter:description" content="趁双11重新弄了个路由器，小米路由器3，本想着和以前路由器一样刷刷就好，但这次情况貌似有些特殊……小米路由器有自己的开发版ROM，我又想使用小米路由器的存储功能，所以不打算另刷系统，直接用原系统。 那么我们开始吧 简介几个要点  Python脚本登陆 SSH对路由器进行操作 设置开机启动 相关细节的操作  可能需要的软件(如果你是Windows系统的话)  PuTTY WinSCP  开启SSH点">
@@ -396,7 +396,11 @@
 <p> vim里按i进入编辑模式，按esc退出编辑模式，再按:wq保存<br> 做完这些后就不会在当前文件夹下生成配置文件了。这样做的目的是开机自启时，会在当前文件夹下生成配置文件，而开机默认当前目录为根目录，根目录不允许写入。</p>
 </li>
 </ol>
-<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>输入<br><code>root@XiaoQiang:~# vim /etc/inittab</code><br>在末尾换行并添加<br><code>::respawn:/data/python/usr/bin/python /data/python/usr/bin/drcom.py</code><br>敲完这一行之后，按 esc 键返回到浏览模式，输入 :wq 然后回车，保存文件并退出编辑器。输入<br><code>root@XiaoQiang:~# reboot</code><br>重启路由器。</p>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>输入<br><code>root@XiaoQiang:~# vim /etc/inittab</code>  </p>
+<p>在末尾换行并添加<br><code>::respawn:/data/python/usr/bin/python /data/python/usr/bin/drcom.py</code>  </p>
+<p>敲完这一行之后，按 esc 键返回到浏览模式，输入 :wq 然后回车，保存文件并退出编辑器。输入  </p>
+<p><code>root@XiaoQiang:~# reboot</code>  </p>
+<p>重启路由器。</p>
 <hr>
 <p><strong>最后再次感谢开发这个脚本并让其开源的作者，为我们提供了有力的工具</strong></p>
 
