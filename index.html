@@ -262,6 +262,325 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/小米路由器3登陆drcom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/小米路由器3登陆drcom/" itemprop="url">小米路由器3登陆drcom</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T09:15:39+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/不务正业/" itemprop="url" rel="index">
+                    <span itemprop="name">不务正业</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>趁双11重新弄了个路由器，小米路由器3，本想着和以前路由器一样刷刷就好，但这次情况貌似有些特殊……小米路由器有自己的开发版ROM，我又想使用小米路由器的存储功能，所以不打算另刷系统，直接用原系统。</p>
+<p>那么我们开始吧</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>几个要点</p>
+<ul>
+<li>Python脚本登陆</li>
+<li>SSH对路由器进行操作</li>
+<li>设置开机启动</li>
+<li>相关细节的操作</li>
+</ul>
+<p>可能需要的软件(如果你是Windows系统的话)</p>
+<ul>
+<li>PuTTY</li>
+<li>WinSCP</li>
+</ul>
+<h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><p>点击进入<a href="http://www1.miwifi.com/miwifi_open.html" target="_blank" rel="external">MIWIFI开放平台</a>，这里提供了开启SSH的方式，比较详细，也是官方的，在这里就不多叙述了。</p>
+<h2 id="下载登陆脚本"><a href="#下载登陆脚本" class="headerlink" title="下载登陆脚本"></a>下载登陆脚本</h2><p>GitHub 项目网址：<a href="https://github.com/drcoms/drcom-generic" target="_blank" rel="external">https://github.com/drcoms/drcom-generic</a>，不同的学校验证方式不同，需要对学校服务器进行设置，可以自行查看此项目的 Wiki，中间有详细介绍，记得下载Python2版本的。</p>
+<p>如果是CQU的朋友，我这里提供了一份配置好的文件，可以直接保存下来: <a href="">drcom.py</a></p>
+<p>记得在username和password后面*改为自己的用户名和密码。</p>
+<h2 id="配置Python"><a href="#配置Python" class="headerlink" title="配置Python"></a>配置Python</h2><p>想要运行Python脚本先得配置Python环境。如果你是Linux或者是Mac，那么通过命令行就能直接通过SSH连接路由器，在这里就只单独说明一下Windows怎么配置的问题。</p>
+<p>我因为之前课题的缘故，在SSH方面使用的是PuTTY搭配WinSCP</p>
+<ul>
+<li><p>PuTTY: <a href="http://www.putty.org/" target="_blank" rel="external">http://www.putty.org/</a>  </p>
+</li>
+<li><p>WinSCP: <a href="https://winscp.net/eng/download.php" target="_blank" rel="external">https://winscp.net/eng/download.php</a></p>
+</li>
+</ul>
+<p>这两个软件都是免费的，可以直接在官网下载到。</p>
+<h3 id="先使用PuTTY连接SSH"><a href="#先使用PuTTY连接SSH" class="headerlink" title="先使用PuTTY连接SSH"></a>先使用PuTTY连接SSH</h3><p>进入 <a href="http://miwifi.com" target="_blank" rel="external">http://miwifi.com</a> 登陆，常用设置-&gt;局域网设置，可以看到自己路由器的IP，打开PuTTY，输入IP，连接路由器，用户名和密码在设置SSH的网址上，输入登陆。</p>
+<h3 id="下载Python环境包"><a href="#下载Python环境包" class="headerlink" title="下载Python环境包"></a>下载Python环境包</h3><p>本着路由器还没配置好哪来的网络下载安装包这一原则，我们不在路由器上直接下载安装，在电脑上先下好，打开 <a href="http://downloads.openwrt.org.cn/PandoraBox/ralink/packages/oldpackages/" target="_blank" rel="external">http://downloads.openwrt.org.cn/PandoraBox/ralink/packages/oldpackages/</a> 这里有很多Python相关的包，查找python-mini，下载下来。打开WinSCP软件，用于传输文件，将刚刚这个包上传进/data文件夹下，在SSH中输入 <code>root@XiaoQiang:/data# tar zxvf python-mini_2.7.3-2_ralink.ipk</code>，接着输入命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@XiaoQiang:/data# mkdir python</div><div class="line">root@XiaoQiang:/data# mv data.tar.gz python</div><div class="line">root@XiaoQiang:/data# cd python</div><div class="line">root@XiaoQiang:/data/python# tar zxvf data.tar.gz</div></pre></td></tr></table></figure>
+<p>然后将刚刚下载下来的drcom.py上传进 /data/python/usr/bin下。</p>
+<p>在这里有个地方需要配置，提供两种方式</p>
+<ol>
+<li><p>(较为推荐) 根据刚刚GitHub中Wiki里的提示，配置drcom.conf文件，并放在/etc下。</p>
+</li>
+<li><p>如果你还是不知道怎么配置，那先运行下脚本，输入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /data/python/usr/bin</div><div class="line">/data/python/usr/bin/python /data/python/usr/bin/drcom.py</div></pre></td></tr></table></figure>
+<p> 然后Ctrl+Z停止运行，会发现多了一个<code>drcom_client.log</code>的文件，输入 <code>mv /data/python/usr/bin/drcom_client.log /var/log/</code>，然后输入 <code>vim /data/python/usr/bin/drcom.py</code>，找到这么一段:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">LOG_PATH = &apos;/var/log/drcom_client.log&apos;</div><div class="line">if IS_TEST:</div><div class="line">    DEBUG = True</div><div class="line">    LOG_PATH = &apos;drcom_client.log&apos;</div></pre></td></tr></table></figure>
+<p> 在最后那一句前面加个<code>#</code>，变成</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">LOG_PATH = &apos;/var/log/drcom_client.log&apos;</div><div class="line">if IS_TEST:</div><div class="line">    DEBUG = True</div><div class="line">    #LOG_PATH = &apos;drcom_client.log&apos;</div></pre></td></tr></table></figure>
+<p> vim里按i进入编辑模式，按esc退出编辑模式，再按:wq保存<br> 做完这些后就不会在当前文件夹下生成配置文件了。这样做的目的是开机自启时，会在当前文件夹下生成配置文件，而开机默认当前目录为根目录，根目录不允许写入。</p>
+</li>
+</ol>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>输入<br><code>root@XiaoQiang:~# vim /etc/inittab</code><br>在末尾换行并添加<br><code>::respawn:/data/python/usr/bin/python /data/python/usr/bin/drcom.py</code><br>敲完这一行之后，按 esc 键返回到浏览模式，输入 :wq 然后回车，保存文件并退出编辑器。输入<br><code>root@XiaoQiang:~# reboot</code><br>重启路由器。</p>
+<hr>
+<p><strong>最后再次感谢开发这个脚本并让其开源的作者，为我们提供了有力的工具</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/MapReduce学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/01/MapReduce学习笔记/" itemprop="url">MapReduce学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T19:15:11+08:00">
+                2017-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。<br>当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输出。</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul>
+<li>HDFS的一个块大小默认64M，一个块为一个分片，每个输入分片会让一个map任务来处理，也可以自己设置。Map输出结果会暂时放在一个环形缓冲区里，默认为100M，当该缓冲区快要溢出时会在本地创建一个溢出文件，将缓冲区数据写入这个文件。  </li>
+<li>在写入磁盘之前，线程首先根据reduce任务的数目将数据划分为相同数目的分区。这样做是为了避免有些reduce任务分配到大量数据，而有些reduce任务却分到很少数据，甚至没有分到数据。  </li>
+<li>当Map任务结束后会进行合并，可以通过将mapred.compress.map.out设置为true来进行数据压缩  </li>
+<li>继承关系：JobTracker -&gt; TaskTracker -&gt; Map，所以JobTracker中保存了宏观的信息，就像目录。Reduce通过向JobTracker获取对应的Map输出位置，不至于产生混乱。</li>
+</ul>
+<h2 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h2><ul>
+<li>Reduce收到Map任务传来的数据，会优先写入内存中，如果超出缓冲区则存入磁盘。  </li>
+<li>随着溢写文件的增多，后台线程会将它们合并成一个更大的有序的文件，这样做是为了给后面的合并节省时间。  </li>
+<li>合并过程会产生中间文件。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/关于俱乐部/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1580,290 +1899,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/关于hexo新版本配置问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张钧洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/main.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张钧洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/09/关于hexo新版本配置问题/" itemprop="url">关于hexo新版本配置问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T19:54:18+08:00">
-                2017-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂项/" itemprop="url" rel="index">
-                    <span itemprop="name">杂项</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>hexo+GitHub配置的教程网上有很多，但是新版Hexo有几个地方会出错，在这里简单地总结一下</p>
-</blockquote>
-<h2 id="Deployer-not-found-github"><a href="#Deployer-not-found-github" class="headerlink" title="Deployer not found: github"></a>Deployer not found: github</h2><p>在执行<code>hexo deploy</code>时，新版hexo会提示以上错误。这是因为新版部分配置文件要求进行了修改。下面是处理过程：</p>
-<ol>
-<li><p>将_config.yml配置文件中的<code>deploy</code>下<code>type</code>字段后的<code>github</code>改为<code>git</code></p>
-</li>
-<li><p>在Git Bash中执行<code>npm install hexo-deployer-git --save</code>(还有些版本中将save置后仍会出错，可以执行<code>npm install --save hexo-deployer-git</code>)</p>
-</li>
-</ol>
-<h2 id="Please-tell-me-who-you-are"><a href="#Please-tell-me-who-you-are" class="headerlink" title="Please tell me who you are."></a>Please tell me who you are.</h2><p>Emmmm，当配置完上面的部分后，有的人再次运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
-<p>又会出现一大串提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO Deploying: git INFO Setting up Git deployment... Initialized empty Git repository in E:/hexo/.deploy_git/.git/ *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&apos;s default identity. Omit --global to set the identity only in this repository. fatal: unable to auto-detect email address (got &apos;dan@dan-PC.(none)&apos;) FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/do cs/troubleshooting.html Error: *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&apos;s default identity. Omit --global to set the identity only in this repository. fatal: unable to auto-detect email address (got &apos;XXX@XXX-PC.(none)&apos;) at ChildProcess.&lt;anonymous&gt; (E:\hexo\node_modules\hexo-deployer-git\node_mod ules\hexo-util\lib\spawn.js:37:17) at emitTwo (events.js:87:13) at ChildProcess.emit (events.js:172:7) at ChildProcess.cp.emit (E:\hexo\node_modules\hexo-deployer-git\node_modules \hexo-util\node_modules\cross-spawn\node_modules\cross-spawn-async\lib\enoent.js :37:29) at maybeClose (internal/child_process.js:827:16) at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5) FATAL</div></pre></td></tr></table></figure>
-<p>一大串错误看了半天其实就是因为本地Git还没有配置用户信息，我也是因为新电脑重装了Git，所以也报了这个错。执行以下命令配置本地用户信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email &quot;xiaoming@163.com&quot;</div><div class="line"></div><div class="line">$ git config --global user.name &quot;xiaoming&quot;</div><div class="line"></div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
-<p>这就可以了，对了，部分新用户还需要设置Github账户的SSH，这个自己搜索就好，网上很多。</p>
-<hr>
-<p>当然，网上的教程绝大部分都是为Hexo老版本写的，所以最一劳永逸的方法当然还是：请下载 Hexo 2.x 版本。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张钧洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/main.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张钧洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/09/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T17:58:05+08:00">
-                2017-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>换了Github来托管，原来博客的文章也懒得搬过来了，说实话以前写的没什么营养……</p>
-<p>有种重新来过的感觉，反正还是和原来差不多，分享一些感兴趣的东西，大部分应该还是分享自己学到了什么。那就这样吧，慢慢填充这个世界</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1911,7 +1953,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1933,7 +1975,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

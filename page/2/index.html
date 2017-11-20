@@ -82,7 +82,7 @@
 <meta name="description" content="Share something interesting">
 <meta property="og:type" content="website">
 <meta property="og:title" content="张钧洋">
-<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="张钧洋">
 <meta property="og:description" content="Share something interesting">
 <meta property="og:locale" content="zh-Hans">
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Java/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title>标签: Java | 张钧洋</title>
+  <title>张钧洋</title>
   
 
 
@@ -143,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,111 +247,296 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
 
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Java<small>标签</small>
-        </h1>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/关于hexo新版本配置问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/09/关于hexo新版本配置问题/" itemprop="url">关于hexo新版本配置问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T19:54:18+08:00">
+                2017-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂项/" itemprop="url" rel="index">
+                    <span itemprop="name">杂项</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
+          
+            <blockquote>
+<p>hexo+GitHub配置的教程网上有很多，但是新版Hexo有几个地方会出错，在这里简单地总结一下</p>
+</blockquote>
+<h2 id="Deployer-not-found-github"><a href="#Deployer-not-found-github" class="headerlink" title="Deployer not found: github"></a>Deployer not found: github</h2><p>在执行<code>hexo deploy</code>时，新版hexo会提示以上错误。这是因为新版部分配置文件要求进行了修改。下面是处理过程：</p>
+<ol>
+<li><p>将_config.yml配置文件中的<code>deploy</code>下<code>type</code>字段后的<code>github</code>改为<code>git</code></p>
+</li>
+<li><p>在Git Bash中执行<code>npm install hexo-deployer-git --save</code>(还有些版本中将save置后仍会出错，可以执行<code>npm install --save hexo-deployer-git</code>)</p>
+</li>
+</ol>
+<h2 id="Please-tell-me-who-you-are"><a href="#Please-tell-me-who-you-are" class="headerlink" title="Please tell me who you are."></a>Please tell me who you are.</h2><p>Emmmm，当配置完上面的部分后，有的人再次运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+<p>又会出现一大串提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO Deploying: git INFO Setting up Git deployment... Initialized empty Git repository in E:/hexo/.deploy_git/.git/ *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&apos;s default identity. Omit --global to set the identity only in this repository. fatal: unable to auto-detect email address (got &apos;dan@dan-PC.(none)&apos;) FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/do cs/troubleshooting.html Error: *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&apos;s default identity. Omit --global to set the identity only in this repository. fatal: unable to auto-detect email address (got &apos;XXX@XXX-PC.(none)&apos;) at ChildProcess.&lt;anonymous&gt; (E:\hexo\node_modules\hexo-deployer-git\node_mod ules\hexo-util\lib\spawn.js:37:17) at emitTwo (events.js:87:13) at ChildProcess.emit (events.js:172:7) at ChildProcess.cp.emit (E:\hexo\node_modules\hexo-deployer-git\node_modules \hexo-util\node_modules\cross-spawn\node_modules\cross-spawn-async\lib\enoent.js :37:29) at maybeClose (internal/child_process.js:827:16) at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5) FATAL</div></pre></td></tr></table></figure>
+<p>一大串错误看了半天其实就是因为本地Git还没有配置用户信息，我也是因为新电脑重装了Git，所以也报了这个错。执行以下命令配置本地用户信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email &quot;xiaoming@163.com&quot;</div><div class="line"></div><div class="line">$ git config --global user.name &quot;xiaoming&quot;</div><div class="line"></div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+<p>这就可以了，对了，部分新用户还需要设置Github账户的SSH，这个自己搜索就好，网上很多。</p>
+<hr>
+<p>当然，网上的教程绝大部分都是为Hexo老版本写的，所以最一劳永逸的方法当然还是：请下载 Hexo 2.x 版本。</p>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+          
         
-            <a class="post-title-link" href="/2017/10/18/中文分词示例/" itemprop="url">
-              
-                <span itemprop="name">中文分词示例</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-18T10:29:04+08:00"
-              content="2017-10-18" >
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/10/Windows下搭建MapReduce开发环境/" itemprop="url">
-              
-                <span itemprop="name">Windows下搭建MapReduce开发环境</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-10T22:18:05+08:00"
-              content="2017-10-10" >
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/10/Hadoop部署简述/" itemprop="url">
-              
-                <span itemprop="name">Hadoop部署简述</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-10T21:02:32+08:00"
-              content="2017-10-10" >
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+      
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/09/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T17:58:05+08:00">
+                2017-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>换了Github来托管，原来博客的文章也懒得搬过来了，说实话以前写的没什么营养……</p>
+<p>有种重新来过的感觉，反正还是和原来差不多，分享一些感兴趣的东西，大部分应该还是分享自己学到了什么。那就这样吧，慢慢填充这个世界</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
