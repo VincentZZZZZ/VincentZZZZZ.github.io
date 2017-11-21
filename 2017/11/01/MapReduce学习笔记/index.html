@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="张钧洋">
 <meta property="og:description" content="MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-01T11:42:26.160Z">
+<meta property="og:updated_time" content="2017-11-21T01:57:37.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce学习笔记">
 <meta name="twitter:description" content="MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输">
@@ -330,6 +330,7 @@
 
       
         <p>MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。<br>当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输出。</p>
+<a id="more"></a>
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul>
 <li>HDFS的一个块大小默认64M，一个块为一个分片，每个输入分片会让一个map任务来处理，也可以自己设置。Map输出结果会暂时放在一个环形缓冲区里，默认为100M，当该缓冲区快要溢出时会在本地创建一个溢出文件，将缓冲区数据写入这个文件。  </li>
 <li>在写入磁盘之前，线程首先根据reduce任务的数目将数据划分为相同数目的分区。这样做是为了避免有些reduce任务分配到大量数据，而有些reduce任务却分到很少数据，甚至没有分到数据。  </li>
