@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Debug,DOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+<meta name="keywords" content="Debug,DOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debug参数说明">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/Debug参数说明/index.html">
+<meta property="og:site_name" content="张钧洋">
+<meta property="og:description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-09T17:10:02.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Debug参数说明">
+<meta name="twitter:description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/10/Debug参数说明/"/>
+
+
+
+
+
+  <title>Debug参数说明 | 张钧洋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张钧洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I'm Vincent Zhang</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/Debug参数说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Debug参数说明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T00:41:52+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>转载自 <a href="http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug" target="_blank" rel="external">http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug</a></p>
+</blockquote>
+<h2 id="命令行参数形式："><a href="#命令行参数形式：" class="headerlink" title="命令行参数形式："></a>命令行参数形式：</h2><ul>
+<li>格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]]</li>
+<li>用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com文件类似。若为其它类型文件则直接进行内存映射，由偏移量100H原封不动读入内存。</li>
+</ul>
+<p>debug将在缓冲区为被调试程序建立适当的PSP（程序段前缀，Program Segment Prefix）。在PSP中的偏移量80H为命令行的末尾。而且在偏移量5CH和6CH由包含参数后面的可选参数构成缺省的FCB（文件控制块，File Control Block）。</p>
+<h2 id="进入时各寄存器初使情况"><a href="#进入时各寄存器初使情况" class="headerlink" title="进入时各寄存器初使情况"></a>进入时各寄存器初使情况</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">寄存器</th>
+<th style="text-align:center">.com程序</th>
+<th style="text-align:center">.exe程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AX</td>
+<td style="text-align:center">指定驱动器错误码</td>
+<td style="text-align:center"></td>
+<td>指定驱动器错误码</td>
+</tr>
+<tr>
+<td style="text-align:center">BX</td>
+<td style="text-align:center">程序空间的高地址</td>
+<td style="text-align:center">程序空间的高地址</td>
+</tr>
+<tr>
+<td style="text-align:center">CX</td>
+<td style="text-align:center">程序空间的低地址</td>
+<td style="text-align:center">程序空间的低地址</td>
+</tr>
+<tr>
+<td style="text-align:center">DX</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">DI</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">BP</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">SP</td>
+<td style="text-align:center">0FFFFH或可利用的内存空间上限减2</td>
+<td style="text-align:center">不定</td>
+</tr>
+<tr>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">100H</td>
+<td style="text-align:center">目标程序的的代码入口偏移量</td>
+</tr>
+<tr>
+<td style="text-align:center">CS</td>
+<td style="text-align:center">PSP</td>
+<td style="text-align:center">目标程序代码段址</td>
+</tr>
+<tr>
+<td style="text-align:center">DS</td>
+<td style="text-align:center">PSP</td>
+<td style="text-align:center">PSP</td>
+</tr>
+<tr>
+<td style="text-align:center">CS</td>
+<td style="text-align:center">PSP</td>
+<td style="text-align:center">PSP</td>
+</tr>
+<tr>
+<td style="text-align:center">SS</td>
+<td style="text-align:center">PSP</td>
+<td style="text-align:center">目标程序堆栈段底</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h2><ol>
+<li><strong>A:  编写汇编代码（Assemble）</strong><ul>
+<li>格式：A[地址]</li>
+<li>用途：程序允许在指定位置（若无缺省为IP指针位置）进行汇编程序书写。</li>
+<li>细节：<ul>
+<li>所有数值皆为十六进制整数，数值后不带“H”</li>
+<li>不支持文件管理用的目录表、宏标记、条件汇编</li>
+<li>跳转指令后要直接书写十六进制地址不支持标号</li>
+<li>数据类型若非默认类型，要以PTR加以指定</li>
+<li>字符串操作要指定类型为B或W（如lodsb和lodsw等）及长度</li>
+<li>用DB和DW接受数据定义，直按进行汇编</li>
+<li>对内存地址加[]以与立即数区分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>C: 内存内容比较（Compare）</strong><ul>
+<li>格式：C 地址范围  地址<ul>
+<li>地址范围：做比较的第一个内存域始未地址或始地址和长度</li>
+<li>地址：    做比较的第二个内存域的始地址</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>对内存中两个域的内容加以比较，以字节为单位。对发现有差别的内容及其地址用如下形式显示出：<code>地址1  始位置  未位置  地址2</code></li>
+<li>若地址范围或地址不含段地址，默认为DS的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>D: 显示内存内容（Dump）</strong><ul>
+<li>格式：D[地址范围]<ul>
+<li>地址范围：给定显示区的始未范围或始地址和长度。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>内存内容显示指令，以十六进制和ASCII码形式显示指定范围内的内存内容。</li>
+<li>若不指定范围，第一次按目标程序的CS：IP的位址开始显示。以后使用上次显示的未地址的下一地址为开始进行显示。</li>
+<li>若不指定长度，则显示128byte的内容。计8行。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>E: 数据的输入</strong><ul>
+<li>格式：E 地址 数值列表<br>   地址：    数据输入的内存始地址<br>   数值列表：从始地址输入的连续数据</li>
+<li>用途：<ul>
+<li>向内存区域输入数据。数据以十六进制形式，或以ASCII码形式<br>均可。覆盖掉原有数据。<ul>
+<li>十六进制时要用空格、逗号或制表符加以分隔。字符串则要用单<br>引号或双引号括起且区分大小写。</li>
+<li>若不指写段址，则默认为DS中值。每写完一数据地址自动增加。</li>
+<li>如省略数值列表，对应每一字节请求输入。点号前为该字节原<br>始值，点号后请求输入。这时若按空格，跳过这一字节；按回车，<br>结束输入；按减号或连字符，显示前一字节内容。<br>　　　　 * 出错时内存内容有可能已被改变。提示后终止。</li>
+<li>字符串只能以数值列表的形式输入，不能按地址提式输入。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>F: 内存填充（Fill）</strong><ul>
+<li>格式：F 地址范围　数值列表<ul>
+<li>地址范围：数据输入的内存始本地址或首地址和长度</li>
+<li>数值列表：从始地址输入的连续数据</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>将列表中数据写入内存。输入数据以十六进制或ASCII码形式。覆盖原有信息；若出错，显示出错信息，原有信息保留。<br>　　　　 <em> 若未指写段址，默认为DS寄存器值。
+　　　　 </em> 列表中可有十六进制或字符串两种形式，各内容用空格、逗号、制表符隔开。字符串必须以单引号或双引号括起，区分大小写。<br>　　　　 * 若要填充区域大于数据数目，列表可重复使用；相反，若列表比要填充区域大时，则自动截断后面的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>G: 程序执行（Go）</strong><ul>
+<li>格式：G[=地址][断点0][……断点]<ul>
+<li>地址：          Debug开始执行的地址。</li>
+<li>断点0……断点9：指定的0—10个临时中断点。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>将CPU控制权由Debug转移给被调试中的程序。不设断点时，则程序的执行或是中途失败或是正常结束。结束时，提示有“Programtermminated nomally”，即程序结束正常，控制权再返回到Debug。<ul>
+<li>此时因数据有可能重写，若需再次执行，因重新装入。</li>
+<li>地址中，如未指定段址，则使用目标程序的CS寄存器中的值。当地址省略时，则Debug使用目标程序的CS:IP寄存器的值开始执行。且为与断点区分，地址参数前必须加等号，否则将其认为是第零个断点。</li>
+<li>断点参数可指定10个临时断点。当程序执行到指定的断点地址时则发生中止。与断点表内的次序无关，断点可按任意次序输入。</li>
+<li>中止时，将会显示寄存器的内容、标志位状态及CS:IP指出的指令（也就是下一条将要执行的指令），然后是提示符“-”。</li>
+<li>若没有装入可执行程序或程序内容未知，有可能进入死状态。</li>
+<li>若目标程序的栈不起作用或太小，则可能引起系统“破碎”。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>H: 执行十六进制算术运算（Hexadecimal）</strong><ul>
+<li>格式：H 值1  值2<ul>
+<li>值1、2为0—FFFFH范围内的任意十六进制数。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>用来求两个十六进制数的和、差，对结果显示为值1+值2及值1 -值2。如果值2 &gt; 值1则显示其补码。</li>
+<li>虽然很少用，但事实还是很有用的，熟练掌握。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>I: 端口的输入（Input）</strong><ul>
+<li>格式：I 端口地址<ul>
+<li>端口地址：0—FFFF范围内的I/O端口地址。</li>
+</ul>
+</li>
+<li>用途：用来读取指定I/O端口地址，并以2位十六进制数加以显示。</li>
+<li>警告：<ul>
+<li>I指令将直接访问计算机硬件，不是所以错误检查都能进行，所以使用是必须小心。对某个外设控制器分配端口的输入操作，可能干涉系统固有的操作。对没有分配指定I/O端口的设备，或该端口为写入专用端口等情况，I命令都不能保证可显示。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>L: 装入命令（Load）</strong><ul>
+<li>格式：<ul>
+<li>L 地址</li>
+<li>L 地址 驱动器 开始扇区 扇区数</li>
+<li>地址：    存放从盘中读出数据的内存地址。</li>
+<li>驱动器：  A=0, B=1, C=2, 以此类推。</li>
+<li>开始扇区：以十六进制数表示要最先装入的逻辑扇区号。</li>
+<li>扇区数：  以十六进制数表示要装入连续扇区个数。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>若输入了一个不完全的L命令时，则对下述磁盘文件进行装入：<ul>
+<li>1在Debug命令行中指定过的文件；</li>
+<li>2由命令末尾参数N指定的文件。<ul>
+<li>在地址中若未指定段址，则使用CS中的值。若为可执行文件按重定位原则装入为可执行状态。</li>
+<li>装入后文件长度，或.exe文件程序的实际长度放入目标程序的BX和CX两个寄存器中。高十六位放在BX中。</li>
+<li>若在命令行中给出所有参数，则不必用MS-DOS的文件系统访问磁盘。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>M: 数据传送（Move）</strong><ul>
+<li>格式：M 地址范围 地址<ul>
+<li>地址范围：被复制域的始末地址，或始地址和长度。</li>
+<li>地址：    数据复制目的域的起始地址。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>对内存中数据进行复制。目的域被覆盖。</li>
+<li>若地址范围中无段址，则使用DS内容；若地址中无段址，使用地址范围中的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>N: 文件名或命令末尾的参数（Name）</strong><ul>
+<li>格式：N 参数 [参数……]<ul>
+<li>参数：插入到仿真的PSP中去一个以上的文件名或者是开关项。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>对磁盘读写操作L、W指定目标文件。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>O: 端口的输出（Output）</strong><ul>
+<li>格式：O 端口  字节<ul>
+<li>端口：I/O端口地址。</li>
+<li>字节：写入I/O端口的0—FFFF范围的值。</li>
+</ul>
+</li>
+<li>用途：向I/O端口地址写入一字节。</li>
+<li>警告：错误的操作将导致系统崩溃。</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>P: 循环或子程序处理（Procedure）</strong><ul>
+<li>格式：P[=地址] [命令数]<ul>
+<li>地址：  执行的起始地址。</li>
+<li>指令数：执行的指令条数。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>循环或子程序处理。将循环、串指令、软件中断或子程序调用视为单语句。执行中了，显示目标程序寄存器内容、标志位状态和下一条要执行的指令。</li>
+<li>若地址参数中无段址，则使用CS中的值。完全忽略地址时，则从程序中的CS:IP指定位置开始执行。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>Q: 结束Debug操作（Quit）</strong><ul>
+<li>格式：Q</li>
+<li>用途：程序结束返回。对未保存的结果丢失。</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>R: 寄存器显示与更改（Register）</strong><ul>
+<li>格式：R [寄存器]<ul>
+<li>寄存器：AX BX CX DX SP BP SI DI DS ES CS IP PC F</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>若R不带参数，则显示所有寄存器的内容和状态标志、下一指令。</li>
+<li>若指定新值，在显示内容后，给出冒句提示输入新值。回车结束。</li>
+<li>对状态字F，在连字符“-”后以空格间隔输入新值，次序不计。</li>
+<li>若直接回车，则跳过修改，寄存器内容不变。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>S: 内存检索（Search）</strong><ul>
+<li>格式：S 地址范围  列表<ul>
+<li>地址范围：想来你该明白是什么样了吧 :)</li>
+<li>列表：    欲检索的一个以上的字节值或字符串。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>在指定的内存范围内检索列表的值。对每一个匹配的地址进行显示。</li>
+<li>若起地址中无段址，默认为DS的值。</li>
+<li>检索范围不得大于FFFFH</li>
+<li>列表必须以分隔符（空格，逗号，制表符等）分隔；字符串要加单引号或双引号括起，区分大小写。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>T: 程序执行跟踪（Trace）</strong><ul>
+<li>格式：T[=地址][指令数]<ul>
+<li>地址：  执行的第一条指令的地址。</li>
+<li>指定数：执行的机器指令的条数。</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>执行单条指令，显示寄存器及下一条指令。</li>
+<li>在地址参数中若无段址，则默认为CS寄存器的值。</li>
+<li>若全部省略，则由CS:IP寄存器指出的地址开始执行。</li>
+<li>以后则顺序执行。</li>
+<li>对ROM内的跟踪应使用T命令。</li>
+</ul>
+</li>
+<li>警告：对Intel 8259 中断屏幕的内容（IBM PC及兼容机端口20H和21H）的更改，或者系统功能调用（INT 21H），不能使用T指令，对上述情况要使用P指令。</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>U: 反汇编（Unassemble）</strong><ul>
+<li>格式：U [地址范围]</li>
+<li>用途：<ul>
+<li>将机器指定解码为汇编语言的助记符。</li>
+<li>地址范围中无段址时，默认使用CS值。</li>
+<li>当始地址与实际边界不一致时，结果将不可信。</li>
+<li>若不含末地址或长度，则自给定始地址起反汇编32个字节。</li>
+<li>以后由前次U最后一指令的下一指令做32字节的反汇编。</li>
+<li>若从没用过U，则于CS:IP开始进行反汇编。</li>
+<li>只能对8086指令解码，对其它以DB来显示。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>W: 写入文件或扇区（Write）</strong><ul>
+<li>格式：<ul>
+<li>W [地址]</li>
+<li>W 地址 驱动器 开始扇区 扇区数<ul>
+<li>地址：  待写入盘的数据在内存中的起始位置。</li>
+<li>驱动器：写入数据的盘的驱动器号（A=0，B=1，C=2，以下类推）。</li>
+<li>始扇区：写入数据的最前的逻辑扇区号（0—FFFFH）。</li>
+<li>扇区数：写入数据的连续扇区个数（0—FFFFH）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用途：<ul>
+<li>将内存中的文件或一个个扇区传送到磁盘上。</li>
+<li>W若不带参数，或只有地址参数，则按BX:CX寄存器指出的字节，从内存向磁盘写入数据。此时的文件名是此命令前最后一个使用过的文件名，或者是N命令中指定的文件，如果没有使用过N命令，则使用Debug命令行中指定的文件。</li>
+<li>Debug的W命令，不能向扩展名为.EXE或.HEX的文件中写入数据。</li>
+<li>这可用改扩展名的方法得到应用，让其能对.exe文件写入。</li>
+<li>若无地址项，则认为是目标程序的CS:0100H。</li>
+<li>该命令可不通过MS-DOS的文件系统直接访问磁盘的逻辑扇区。但必须以十六进制形式给在命令行中给定各参数。</li>
+<li>W命令不能对用于网络上的驱动器进行逻辑扇区写入处理。</li>
+</ul>
+</li>
+<li>警告：若参数有误，则可能破坏盘文件结构。请务必先搞清再作试践，特别是对硬盘的操作。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Debug/" rel="tag"># Debug</a>
+          
+            <a href="/tags/DOS/" rel="tag"># DOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/20/推一波manjaro/" rel="next" title="推一波manjaro">
+                <i class="fa fa-chevron-left"></i> 推一波manjaro
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/main.jpg"
+                alt="张钧洋" />
+            
+              <p class="site-author-name" itemprop="name">张钧洋</p>
+              <p class="site-description motion-element" itemprop="description">Share something interesting</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行参数形式："><span class="nav-number">1.</span> <span class="nav-text">命令行参数形式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入时各寄存器初使情况"><span class="nav-number">2.</span> <span class="nav-text">进入时各寄存器初使情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令："><span class="nav-number">3.</span> <span class="nav-text">命令：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张钧洋</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
