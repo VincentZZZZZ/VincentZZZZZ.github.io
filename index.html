@@ -262,6 +262,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/汇编-输出数值子程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/10/汇编-输出数值子程序/" itemprop="url">汇编|输出数值子程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T01:28:45+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>名称：print_10<br>调用：<code>CALL print_10</code><br>功能：以10进制输出AX寄存器中的数值<br>环境：80x86 CPU</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">; 这个子程序封装了print_10_base子程序</div><div class="line">; 因为print_10_base采用递归实现，不方便保存和还原各寄存器</div><div class="line">; 所以封装起来在外部实现存储和还原各寄存器的值</div><div class="line">print_10 proc</div><div class="line">    </div><div class="line">    PUSH AX</div><div class="line">    PUSH BX</div><div class="line">    PUSH CX</div><div class="line">    PUSH DX</div><div class="line">    </div><div class="line">    CALL PRINT_10_BASE</div><div class="line">    </div><div class="line">    POP DX</div><div class="line">    POP CX</div><div class="line">    POP BX</div><div class="line">    POP AX</div><div class="line">    </div><div class="line">    RET</div><div class="line"></div><div class="line">print_10 endp</div><div class="line"></div><div class="line">;子函数实现打印数值</div><div class="line">;输出AX中的无符号整数</div><div class="line">;以10进制输出</div><div class="line">;=====================================</div><div class="line">print_10_base proc</div><div class="line"></div><div class="line">    MOV DX,0</div><div class="line">    MOV  BX,10 </div><div class="line">    CMP  AX,0</div><div class="line">    JZ   IF_0     ;如果AX=0，则直接退出</div><div class="line"></div><div class="line">;用栈实现递归的函数功能</div><div class="line">    _LOOP:</div><div class="line">		MOV DX,0        </div><div class="line">        DIV BX</div><div class="line">        MOV CX,AX     ;商保存至CX中</div><div class="line">        OR CX,DX      ;判断商和余数</div><div class="line">        JZ _EXIT      ;若商与余数都为0则结束递归.</div><div class="line">        PUSH DX       ;保存余数.</div><div class="line">        MOV DX,0      ;余数归零</div><div class="line">        CALL _LOOP    ;递归.</div><div class="line">    </div><div class="line">        POP DX        ;恢复余数.</div><div class="line">        ADD DL,&apos;0&apos;    ;变成ASCII码.</div><div class="line">        JMP _PRINT</div><div class="line"></div><div class="line">    IF_0: MOV DL,&apos;0&apos;  ;是0则直接输出.</div><div class="line"></div><div class="line">    _PRINT: </div><div class="line">        MOV AH,2</div><div class="line">        INT 21H       ;打印单个字母</div><div class="line"></div><div class="line">    _EXIT:  RET</div><div class="line"></div><div class="line">print_10_base endp</div><div class="line">;printNum子函数结束</div><div class="line">;======================================</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/Debug参数说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,169 +1723,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/Hadoop部署简述/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张钧洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/main.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张钧洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/Hadoop部署简述/" itemprop="url">Hadoop部署简述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T21:02:32+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/" itemprop="url" rel="index">
-                    <span itemprop="name">大数据</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Hadoop-简介"><a href="#Hadoop-简介" class="headerlink" title="Hadoop 简介"></a>Hadoop 简介</h2><p>Hadoop是一个框架，用来在集群服务器上对大数据集进行分布式处理。Hadoop被设计成能够从单台服务器扩展到数以千计的服务器,其代码库自身就能在应用层侦测并处理硬件故障，因此能基于服务器集群提供高可用性的服务。</p>
-<h2 id="Hadoop-生态系统"><a href="#Hadoop-生态系统" class="headerlink" title="Hadoop 生态系统"></a>Hadoop 生态系统</h2><ul>
-<li><p><strong>HDFS:</strong> Hadoop分布式文件系统，是一种数据分布式保存机制，为其他很多工具提供了基础。</p>
-</li>
-<li><p><strong>MapReduce:</strong> Hadoop的主要执行框架，一个分布式、并行处理的百年城模型，MapReduce能把任务分为map(映射)和reduce(化简)。由于MapReduce工作原理的特性，Hadoop能以并行的方式访问数据，从而实现快速访问数据。</p>
-</li>
-</ul>
-<blockquote>
-<p>其他等后面学到我再更新</p>
-</blockquote>
-<h2 id="Hadoop-搭建"><a href="#Hadoop-搭建" class="headerlink" title="Hadoop 搭建"></a>Hadoop 搭建</h2><blockquote>
-<p>本次搭建环境  </p>
-<ul>
-<li>CentOS 7.0</li>
-<li>JDK</li>
-<li>Hadoop</li>
-</ul>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/10/Hadoop部署简述/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1798,7 +1777,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1820,7 +1799,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
