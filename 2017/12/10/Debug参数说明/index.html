@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+<meta name="description" content="转载自：http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
 <meta name="keywords" content="Debug,DOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debug参数说明">
 <meta property="og:url" content="http://yoursite.com/2017/12/10/Debug参数说明/index.html">
 <meta property="og:site_name" content="张钧洋">
-<meta property="og:description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+<meta property="og:description" content="转载自：http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-09T17:10:02.253Z">
+<meta property="og:updated_time" content="2017-12-09T17:12:45.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debug参数说明">
-<meta name="twitter:description" content="转载自 http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
+<meta name="twitter:description" content="转载自：http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;amp;fpage=1&amp;amp;highlight=debug  命令行参数形式： 格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]] 用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com">
 
 
 
@@ -353,13 +353,14 @@
 
       
         <blockquote>
-<p>转载自 <a href="http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug" target="_blank" rel="external">http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug</a></p>
+<p>转载自：<a href="http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug" target="_blank" rel="external">http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug</a></p>
 </blockquote>
 <h2 id="命令行参数形式："><a href="#命令行参数形式：" class="headerlink" title="命令行参数形式："></a>命令行参数形式：</h2><ul>
 <li>格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]]</li>
 <li>用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com文件类似。若为其它类型文件则直接进行内存映射，由偏移量100H原封不动读入内存。</li>
 </ul>
 <p>debug将在缓冲区为被调试程序建立适当的PSP（程序段前缀，Program Segment Prefix）。在PSP中的偏移量80H为命令行的末尾。而且在偏移量5CH和6CH由包含参数后面的可选参数构成缺省的FCB（文件控制块，File Control Block）。</p>
+<a id="more"></a>
 <h2 id="进入时各寄存器初使情况"><a href="#进入时各寄存器初使情况" class="headerlink" title="进入时各寄存器初使情况"></a>进入时各寄存器初使情况</h2><table>
 <thead>
 <tr>
