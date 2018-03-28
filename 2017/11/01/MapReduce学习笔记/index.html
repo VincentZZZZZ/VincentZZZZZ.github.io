@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hadoop,Java,MapReduce," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输">
+<meta name="keywords" content="Hadoop,Java,MapReduce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MapReduce学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/11/01/MapReduce学习笔记/index.html">
 <meta property="og:site_name" content="张钧洋">
 <meta property="og:description" content="MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T01:57:37.314Z">
+<meta property="og:updated_time" content="2018-03-28T12:43:15.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce学习笔记">
 <meta name="twitter:description" content="MapReduce 是现今一个非常流行的分布式计算框架，它被设计用于并行计算海量数据。当你向MapReduce框架提交一个任务时，它会首先把整个作业拆分成若干个Map任务，然后分配到不同的节点上去执行，每一个Map任务处理输入数据中的一部分，当Map任务完成后，它会生成一些中间文件，这些中间文件将会作为Reduce任务的输入数据。Reduce任务的主要目标就是把前面若干个Map的输出汇总到一起并输">
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -356,6 +379,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/MapReduce/" rel="tag"># MapReduce</a>
+          
+        </div>
       
 
       
@@ -459,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -481,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -536,7 +569,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
