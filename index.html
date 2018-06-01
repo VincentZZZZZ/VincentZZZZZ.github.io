@@ -262,6 +262,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/关于pip安装的编码问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张钧洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/main.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张钧洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/01/关于pip安装的编码问题/" itemprop="url">关于pip安装的编码问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T15:41:07+08:00">
+                2018-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题归档/" itemprop="url" rel="index">
+                    <span itemprop="name">问题归档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用pip安装flask-sqlalchemy时，出现<code>PermissionError: [WinError 5] 拒绝访问。: &#39;C:\\Users\\****\\AppData\\Local\\Temp\\pip-build-t8gk1nh8\\SQLAlchemy\\lib\\sqlalchemy\\cextension&#39;</code></p>
+<p>这时我以为是权限问题，但是查看了这个文件夹的<code>属性-&gt;安全</code>，发现权限没问题，然后我就用管理员模式启动了命令行，再次安装，这次报错：<code>PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。</code></p>
+<p>这就让我很是惊奇了，检查了进程没发现什么异常，重启也还报错，网上大概查了下是Python统一使用utf-8，而cmd默认是gbk。这里我找到两种解决方案：</p>
+<ol>
+<li><p>打开<code>c:\program files\python36\lib\site-packages\pip\compat\__init__.py</code>，找到 <code>return s.decode(&#39;utf_8&#39;)</code> 改为 <code>return s.decode(&#39;cp936&#39;)</code></p>
+</li>
+<li><p>更换cmd编码，先在cmd中输入<code>chcp 65001</code>，在标题栏点击右键, 打开属性面板, 会看到“选项”标签页下方显示“当前代码页”的编码. 然后选择“字体”标签页, 把字体设置为 <code>Lucia Console</code>, 然后确定关闭，然后再执行安装。这里附上几种主要编码的编号：</p>
+<ul>
+<li>936 GBK(一般情况下为默认编码) </li>
+<li>437 美国英语 </li>
+<li>65001 utf-8</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/SAKURA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1595,159 +1750,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/Debug参数说明/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张钧洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/main.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张钧洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/10/Debug参数说明/" itemprop="url">Debug参数说明</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T00:41:52+08:00">
-                2017-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/汇编/" itemprop="url" rel="index">
-                    <span itemprop="name">汇编</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>转载自：<br><a href="http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug" target="_blank" rel="external">http://www.cn-dos.net/forum/viewthread.php?tid=3123&amp;fpage=1&amp;highlight=debug</a></p>
-</blockquote>
-<h2 id="命令行参数形式："><a href="#命令行参数形式：" class="headerlink" title="命令行参数形式："></a>命令行参数形式：</h2><ul>
-<li>格式：DEBUG [[驱动器号:][路径]文件名 [调试参数]]</li>
-<li>用途：debug将所指定文件装入内存，显示提示符“-”等待进一步命令。若装入文件为.exe文件，按照重定位原则装入为可执行状态。.com文件类似。若为其它类型文件则直接进行内存映射，由偏移量100H原封不动读入内存。</li>
-</ul>
-<p>debug将在缓冲区为被调试程序建立适当的PSP（程序段前缀，Program Segment Prefix）。在PSP中的偏移量80H为命令行的末尾。而且在偏移量5CH和6CH由包含参数后面的可选参数构成缺省的FCB（文件控制块，File Control Block）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/10/Debug参数说明/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1802,7 +1804,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1813,7 +1815,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1824,7 +1826,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
